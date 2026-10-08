@@ -1,5 +1,62 @@
+<h2>Lista restauracji</h2>
+
+<label>Szukaj po nazwie
+  <input 
+  type = "search" 
+  [value] ="searchTerm()" 
+  (input) = "searchTerm.set(searchInput.value)" 
+  #searchInput
+  />
+</label>
+
+<label> 
+  Kuchnia
+  <select
+  [value]="selectedCuisine()"
+  (change)="selectedCuisine.set(cuisineSelect.value)"
+  #cuisineSelect
+  >
+    <option value="all">Wszystkie</option>
+    <option value="polish">Polska</option>
+    <option value="italian">Włoska</option>
+    <option value="american">Amerykańska</option>
+    <option value="thai">Tajska</option>
+    <option value="chinese">Chińska</option>
+  </select>
+</label>
+
+<label>
+  Tylko aktywne
+  <input
+  type="checkbox"
+  [checked]="acitveOnly()"
+  (change)="acitveOnly.set(activeCheckbox.checked)"
+  #activeCheckbox
+  />
+</label>
+
+<label>
+  Sortuj po 
+  <select
+  [value]="sortBy()"
+  (change)="sortBy.set(sortSelect.value)"
+  #sortSelect
+  >
+  <option value="rating">Ocena</option>
+  <option value="deliveryTime">Czas dostawy</option>
+  <option value="deliveryFee">Opłata za dostawę</option>
+  </select>
+</label>
+
+<label>
+  Resetuj filtry
+  <button (click)="resetFilters()">Reset</button>
+</label>
+ 
 <section class="list">
-  <app-restaurant-card />
-  <app-restaurant-card />
-  <app-restaurant-card />
+  @for (restaurant of filteredRestaurants(); track restaurant.id) {
+    <app-restaurant-card [restaurant]="restaurant" />
+  } @empty {
+    <div class="no-restourant">Nie znaleziono restauracji</div>
+  }
 </section>

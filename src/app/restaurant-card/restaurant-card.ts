@@ -1,20 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, model, signal } from '@angular/core';
+import { Restaurant } from '../Models/restaurant.model';
 
 @Component({
-  imports: [],
   selector: 'app-restaurant-card',
-  styleUrl: './restaurant-card.scss',
   templateUrl: './restaurant-card.html',
+  styleUrl: './restaurant-card.scss',
 })
 export class RestaurantCard {
-  restaurant = signal({
-    name: 'Makoo',
-    description: 'Opis',
-    cousineType: 'Kuchnia: Polska',
-    image: 'https://picsum.photos/200/300',
-    rating: 5.0,
-    deliveryTime: '20min',
-    deliveryCost: '15zł',
-    isActive: 'Active',
-  });
+  restaurant = input.required<Restaurant>();
 }
