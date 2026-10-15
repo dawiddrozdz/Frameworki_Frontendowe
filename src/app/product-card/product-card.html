@@ -1,0 +1,11 @@
+<article class="product-card" [class.unavailable]="!product().isAvailable">
+  <img [src]="product().imageUrl" [alt]="product().name" />
+  <h4>{{ product().name }}</h4>
+  <p>{{ product().description }}</p>
+  <p>{{ product().price }} zł</p>
+  @if (!product().isAvailable) {
+    <p class="availability" role="status">Niedostępny</p>
+  } @else {
+    <p class="availability">Dostępny</p>
+  }
+</article>

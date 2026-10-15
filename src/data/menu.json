@@ -1,0 +1,607 @@
+[
+  {
+    "restaurantId": 1,
+    "restaurantName": "Pierogarnia Pod Aniołami",
+    "categories": [
+      {
+        "name": "Pierogi",
+        "products": [
+          {
+            "name": "Pierogi ruskie",
+            "description": "Tradycyjne pierogi z twarogiem ziemniakami i podsmażoną cebulką.",
+            "price": 28.00,
+            "imageUrl": "https://images.unsplash.com/photo-1541529086526-db283c563270",
+            "isAvailable": true
+          },
+          {
+            "name": "Pierogi z mięsem",
+            "description": "Ręcznie lepione pierogi z farszem z wieprzowiny i majeranku.",
+            "price": 32.00,
+            "imageUrl": "https://images.unsplash.com/photo-1541529086526-db283c563270",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Zupy",
+        "products": [
+          {
+            "name": "Żurek staropolski",
+            "description": "Gęsty żurek na zakwasie z białą kiełbasą i jajkiem.",
+            "price": 19.00,
+            "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Kotlet schabowy z ziemniakami",
+            "description": "Tradycyjny schabowy podawany z młodymi ziemniakami i mizerią.",
+            "price": 42.00,
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Kompot owocowy",
+            "description": "Domowy kompot ze świeżych sezonowych owoców.",
+            "price": 8.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 2,
+    "restaurantName": "Trattoria Bella Italia",
+    "categories": [
+      {
+        "name": "Pizza",
+        "products": [
+          {
+            "name": "Pizza Margherita",
+            "description": "Klasyczna pizza z sosem pomidorowym mozzarellą fior di latte i świeżą bazylią.",
+            "price": 34.00,
+            "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+            "isAvailable": true
+          },
+          {
+            "name": "Pizza Prosciutto e Rucola",
+            "description": "Pizza z szynką parmeńską rukolą i płatkami parmezanu.",
+            "price": 45.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Makarony",
+        "products": [
+          {
+            "name": "Spaghetti Carbonara",
+            "description": "Makaron z żółtkami guanciale pieprzem i pecorino.",
+            "price": 42.00,
+            "imageUrl": "https://images.unsplash.com/photo-1621996346565-e3d5d6281292",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Desery",
+        "products": [
+          {
+            "name": "Tiramisu",
+            "description": "Włoski deser z mascarpone biszkoptami i espresso.",
+            "price": 24.00,
+            "imageUrl": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Wino włoskie",
+            "description": "Wybór czerwonego lub białego wina stołowego.",
+            "price": 38.00,
+            "imageUrl": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 3,
+    "restaurantName": "Smash Burger Co.",
+    "categories": [
+      {
+        "name": "Burgers",
+        "products": [
+          {
+            "name": "Classic Smash Burger",
+            "description": "Podwójny smash burger z wołowiny Black Angus cheddarem i sosem majonezowym.",
+            "price": 39.00,
+            "imageUrl": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+            "isAvailable": true
+          },
+          {
+            "name": "Bacon Deluxe Burger",
+            "description": "Smash burger z chrupiącym bekonem czerwoną cebulą i sosem BBQ.",
+            "price": 44.00,
+            "imageUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Frytki z batatów",
+            "description": "Chrupiące frytki z batatów z sosem aioli.",
+            "price": 18.00,
+            "imageUrl": "https://images.unsplash.com/photo-1573821663912-569905455b1c",
+            "isAvailable": true
+          },
+          {
+            "name": "Krążki cebulowe",
+            "description": "Panierowane krążki cebulowe z dipem czosnkowym.",
+            "price": 16.00,
+            "imageUrl": "https://images.unsplash.com/photo-1639024471283-03518883512d",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Shake waniliowy",
+            "description": "Gęsty sęk waniliowy z bitą śmietaną.",
+            "price": 20.00,
+            "imageUrl": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 4,
+    "restaurantName": "Bangkok Street Food",
+    "categories": [
+      {
+        "name": "Zupy",
+        "products": [
+          {
+            "name": "Tom Yum Goong",
+            "description": "Pikantno-kwaśna zupa z krewetkami trawą cytrynową i grzybami.",
+            "price": 36.00,
+            "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Pad Thai z kurczakiem",
+            "description": "Smażony makaron ryżowy z kurczakiem jajkiem tofu i sosem z tamaryndowca.",
+            "price": 42.00,
+            "imageUrl": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
+            "isAvailable": true
+          },
+          {
+            "name": "Zielone curry",
+            "description": "Aromatyczne zielone curry z mleczkiem kokosowym warzywami i kurczakiem.",
+            "price": 44.00,
+            "imageUrl": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Desery",
+        "products": [
+          {
+            "name": "Mango Sticky Rice",
+            "description": "Klimatyczny deser z kleistym ryżem mleczkiem kokosowym i świeżym mango.",
+            "price": 25.00,
+            "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Lemoniada z trawą cytrynową",
+            "description": "Orzeźwiająca lemoniada z syropem z trawy cytrynowej i limonką.",
+            "price": 16.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 5,
+    "restaurantName": "Złoty Smok",
+    "categories": [
+      {
+        "name": "Przystawki",
+        "products": [
+          {
+            "name": "Sajgonki wieprzowe",
+            "description": "Chrupiące sajgonki z nadzieniem mięsnym i warzywami.",
+            "price": 22.00,
+            "imageUrl": "https://images.unsplash.com/photo-1541529086526-db283c563270",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Kurczak w sosie słodko-kwaśnym",
+            "description": "Kawałki kurczaka w cieście z ananasem papryką i sosem słodko-kwaśnym.",
+            "price": 39.00,
+            "imageUrl": "https://images.unsplash.com/photo-1525755662778-989d0524087e",
+            "isAvailable": true
+          },
+          {
+            "name": "Wołowina z cebulą",
+            "description": "Delikatna wołowina z cebulą w sosie sojowo-ostrygowym.",
+            "price": 46.00,
+            "imageUrl": "https://images.unsplash.com/photo-1585032226651-759b368d7246",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Smażony ryż z jajkiem",
+            "description": "Ryż jaśminowy smażony z jajkiem i zielonym groszkiem.",
+            "price": 15.00,
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Zielona herbata",
+            "description": "Tradycyjna chińska zielona herbata z jaśminem.",
+            "price": 12.00,
+            "imageUrl": "https://images.unsplash.com/photo-1576092768241-dec231879fc3",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 6,
+    "restaurantName": "Karczma Staropolska",
+    "categories": [
+      {
+        "name": "Zupy",
+        "products": [
+          {
+            "name": "Barszcz z uszkami",
+            "description": "Czysty barszcz czerwony z ręcznie lepionymi uszkami z grzybami.",
+            "price": 21.00,
+            "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Golonka w piwie",
+            "description": "Pieczona golonka wieprzowa podawana z musztardą chrzanem i pieczywem.",
+            "price": 55.00,
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947",
+            "isAvailable": true
+          },
+          {
+            "name": "Placki po węgiersku",
+            "description": "Placki ziemniaczane z gulaszem wieprzowym i śmietaną.",
+            "price": 48.00,
+            "imageUrl": "https://images.unsplash.com/photo-1541529086526-db283c563270",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Kapusta zasmażana",
+            "description": "Tradycyjna kapusta zasmażana z boczkiem i kminkiem.",
+            "price": 14.00,
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Desery",
+        "products": [
+          {
+            "name": "Szarlotka na ciepło",
+            "description": "Domowe ciasto jabłkowe z gałką lodów waniliowych.",
+            "price": 22.00,
+            "imageUrl": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 7,
+    "restaurantName": "Pizzeria Da Luigi",
+    "categories": [
+      {
+        "name": "Przystawki",
+        "products": [
+          {
+            "name": "Focaccia",
+            "description": "Włoski wypiek drożdżowy z oliwą solą morską i rozmarynem.",
+            "price": 20.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Pizza",
+        "products": [
+          {
+            "name": "Pizza Quattro Formaggi",
+            "description": "Pizza z mozzarellą gorgonzolą taleggio i parmezanem.",
+            "price": 44.00,
+            "imageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+            "isAvailable": true
+          },
+          {
+            "name": "Pizza Diavola",
+            "description": "Pizza z pikantnym włoskim salami spianata i papryczkami.",
+            "price": 41.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Makarony",
+        "products": [
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Penne w ostrym sosie pomidorowym z czosnkiem i chilli.",
+            "price": 36.00,
+            "imageUrl": "https://images.unsplash.com/photo-1621996346565-e3d5d6281292",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Woda gazowana",
+            "description": "Włoska woda gazowana w szklanej butelce.",
+            "price": 14.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 8,
+    "restaurantName": "Texas BBQ Pit",
+    "categories": [
+      {
+        "name": "Przystawki",
+        "products": [
+          {
+            "name": "Skrzydełka BBQ",
+            "description": "Wędzone skrzydełka w słodko-dymnym sosie BBQ.",
+            "price": 26.00,
+            "imageUrl": "https://images.unsplash.com/photo-1527477396000-e27163b481c2",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Żeberka wędzone",
+            "description": "Wędzone przez 6 godzin żeberka wieprzowe z frytkami i colesławem.",
+            "price": 68.00,
+            "imageUrl": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd",
+            "isAvailable": true
+          },
+          {
+            "name": "Pulled Pork",
+            "description": "Kanapka z szarpaną wieprzowiną sosem BBQ i sałatką colesław.",
+            "price": 45.00,
+            "imageUrl": "https://images.unsplash.com/photo-1509722747041-616f39b57569",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Colesław",
+            "description": "Klasyczna amerykańska surówka z białej kapusty i marchewki.",
+            "price": 14.00,
+            "imageUrl": "https://images.unsplash.com/photo-1544025162-d76694265947",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Cola waniliowa",
+            "description": "Napój gazowany o smaku coli z nutą wanilii.",
+            "price": 12.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 9,
+    "restaurantName": "Tuk Tuk Thai",
+    "categories": [
+      {
+        "name": "Zupy",
+        "products": [
+          {
+            "name": "Tom Kha Gai",
+            "description": "Kremowa zupa kokosowa z kurczakiem galangalem i grzybami.",
+            "price": 34.00,
+            "imageUrl": "https://images.unsplash.com/photo-1547592180-85f173990554",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Pad See Ew",
+            "description": "Szeroki smażony makaron ryżowy z ciemnym sosem sojowym i warzywami.",
+            "price": 41.00,
+            "imageUrl": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
+            "isAvailable": true
+          },
+          {
+            "name": "Żółte curry",
+            "description": "Łagodne curry z tofu ziemniakami i orzeszkami ziemnymi.",
+            "price": 40.00,
+            "imageUrl": "https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Ryż kleisty",
+            "description": "Tradycyjny tajski ryż parzony w koszyku bambusowym.",
+            "price": 12.00,
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Tajska herbata",
+            "description": "Słodka czarna herbata z mlekiem skondensowanym i lodem.",
+            "price": 16.00,
+            "imageUrl": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "restaurantId": 10,
+    "restaurantName": "Pekin Express",
+    "categories": [
+      {
+        "name": "Przystawki",
+        "products": [
+          {
+            "name": "Sajgonki warzywne",
+            "description": "Chrupiące minipierożki z nadzieniem warzywnym.",
+            "price": 18.00,
+            "imageUrl": "https://images.unsplash.com/photo-1541529086526-db283c563270",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dania główne",
+        "products": [
+          {
+            "name": "Kurczak z warzywami",
+            "description": "Szybkie danie z woka: kurczak kapusta pekińska marchew i sos sojowy.",
+            "price": 35.00,
+            "imageUrl": "https://images.unsplash.com/photo-1585032226651-759b368d7246",
+            "isAvailable": true
+          },
+          {
+            "name": "Wołowina z brokułami",
+            "description": "Kawałki wołowiny duszone z brokułami w sosie ostrygowym.",
+            "price": 42.00,
+            "imageUrl": "https://images.unsplash.com/photo-1525755662778-989d0524087e",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Dodatki",
+        "products": [
+          {
+            "name": "Makaron chow mein",
+            "description": "Makaron pszenny z warzywami z patelni.",
+            "price": 16.00,
+            "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d",
+            "isAvailable": true
+          }
+        ]
+      },
+      {
+        "name": "Napoje",
+        "products": [
+          {
+            "name": "Sok lichi",
+            "description": "Orzeźwiający napój owocowy o smaku owocu lichi.",
+            "price": 10.00,
+            "imageUrl": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd",
+            "isAvailable": true
+          }
+        ]
+      }
+    ]
+  }
+]

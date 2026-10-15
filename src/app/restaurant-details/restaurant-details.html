@@ -1,0 +1,41 @@
+@if (restaurant(); as item) {
+  <main class="restaurant-details">
+    <header class="restaurant-hero">
+      <img [src]="item.imageUrl" [alt]="item.name" />
+      <div>
+        <p class="eyebrow">{{ item.cuisine }}</p>
+        <h1>{{ item.name }}</h1>
+        <p class="description">{{ item.description }}</p>
+        <div class="restaurant-facts">
+          <p><strong>Ocena</strong> {{ item.rating }}</p>
+          <p><strong>Dostawa</strong> {{ item.deliveryTimeMin }}–{{ item.deliveryTimeMax }} min</p>
+          <p><strong>Koszt dostawy</strong> {{ item.deliveryFee }} zł</p>
+          <p><strong>Adres</strong> {{ item.address }}</p>
+        </div>
+      </div>
+    </header>
+
+    @if (menu(); as restaurantMenu) {
+      <div class="menu-heading">
+        <p class="eyebrow">Co dziś serwujemy</p>
+        <h2>Menu</h2>
+      </div>
+      @for (category of restaurantMenu.categories; track category.name) {
+        <section class="menu-category">
+          <h3>{{ category.name }}</h3>
+          <div class="product-grid">
+            @for (product of category.products; track product.name) {
+              <app-product-card [product]="product" />
+            }
+          </div>
+        </section>
+      }
+    } @else {
+      <p class="empty-menu">Menu tej restauracji nie jest jeszcze dostępne.</p>
+    }
+  </main>
+} @else {
+  <main class="restaurant-details">
+    <p class="empty-menu">Nie znaleziono restauracji.</p>
+  </main>
+}

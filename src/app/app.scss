@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+router-outlet {
+  display: none;
+}
+
+app-header,
+app-footer {
+  display: block;
+}
+
+app-header {
+  flex: 0 0 auto;
+}
+
+app-footer {
+  margin-top: auto;
+}

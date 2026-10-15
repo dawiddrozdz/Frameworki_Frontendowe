@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  padding: 1.25rem clamp(1rem, 4vw, 3.5rem);
+  color: #e4eee8;
+  background: #183b30;
+}
+
+p {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  color: #d2e0d8;
+  font-size: 0.9rem;
+}

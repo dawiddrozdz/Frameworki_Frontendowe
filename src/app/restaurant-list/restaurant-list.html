@@ -1,62 +1,64 @@
-<h2>Lista restauracji</h2>
+<main class="restaurant-list-page">
+  <h1>Znajdź coś pysznego</h1>
+  <p class="intro">Wybierz restaurację i odkryj jej menu.</p>
 
-<label>Szukaj po nazwie
-  <input 
-  type = "search" 
-  [value] ="searchTerm()" 
-  (input) = "searchTerm.set(searchInput.value)" 
-  #searchInput
-  />
-</label>
+  <div class="filters">
+    <label>Szukaj po nazwie
+      <input
+        type="search"
+        [value]="searchTerm()"
+        (input)="searchTerm.set(searchInput.value)"
+        #searchInput
+      />
+    </label>
 
-<label> 
-  Kuchnia
-  <select
-  [value]="selectedCuisine()"
-  (change)="selectedCuisine.set(cuisineSelect.value)"
-  #cuisineSelect
-  >
-    <option value="all">Wszystkie</option>
-    <option value="polish">Polska</option>
-    <option value="italian">Włoska</option>
-    <option value="american">Amerykańska</option>
-    <option value="thai">Tajska</option>
-    <option value="chinese">Chińska</option>
-  </select>
-</label>
+    <label>
+      Kuchnia
+      <select
+        [value]="selectedCuisine()"
+        (change)="selectedCuisine.set(cuisineSelect.value)"
+        #cuisineSelect
+      >
+        <option value="all">Wszystkie</option>
+        <option value="polish">Polska</option>
+        <option value="italian">Włoska</option>
+        <option value="american">Amerykańska</option>
+        <option value="thai">Tajska</option>
+        <option value="chinese">Chińska</option>
+      </select>
+    </label>
 
-<label>
-  Tylko aktywne
-  <input
-  type="checkbox"
-  [checked]="acitveOnly()"
-  (change)="acitveOnly.set(activeCheckbox.checked)"
-  #activeCheckbox
-  />
-</label>
+    <label class="active-filter">
+      <input
+        type="checkbox"
+        [checked]="activeOnly()"
+        (change)="activeOnly.set(activeCheckbox.checked)"
+        #activeCheckbox
+      />
+      Tylko aktywne
+    </label>
 
-<label>
-  Sortuj po 
-  <select
-  [value]="sortBy()"
-  (change)="sortBy.set(sortSelect.value)"
-  #sortSelect
-  >
-  <option value="rating">Ocena</option>
-  <option value="deliveryTime">Czas dostawy</option>
-  <option value="deliveryFee">Opłata za dostawę</option>
-  </select>
-</label>
+    <label>
+      Sortuj po
+      <select
+        [value]="sortBy()"
+        (change)="sortBy.set(sortSelect.value)"
+        #sortSelect
+      >
+        <option value="rating">Ocena</option>
+        <option value="deliveryTime">Czas dostawy</option>
+        <option value="deliveryFee">Opłata za dostawę</option>
+      </select>
+    </label>
 
-<label>
-  Resetuj filtry
-  <button (click)="resetFilters()">Reset</button>
-</label>
- 
-<section class="list">
-  @for (restaurant of filteredRestaurants(); track restaurant.id) {
-    <app-restaurant-card [restaurant]="restaurant" />
-  } @empty {
-    <div class="no-restourant">Nie znaleziono restauracji</div>
-  }
-</section>
+    <button class="reset-button" type="button" (click)="resetFilters()">Resetuj filtry</button>
+  </div>
+
+  <section class="list" aria-label="Restauracje">
+    @for (restaurant of filteredRestaurants(); track restaurant.id) {
+      <app-restaurant-card [restaurant]="restaurant" />
+    } @empty {
+      <p class="no-restaurants">Nie znaleziono restauracji.</p>
+    }
+  </section>
+</main>

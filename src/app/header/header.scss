@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  padding: 1rem clamp(1rem, 4vw, 3.5rem);
+  color: #fff;
+  background: #183b30;
+  box-shadow: 0 4px 18px rgb(16 38 29 / 16%);
+}
+
+p {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}

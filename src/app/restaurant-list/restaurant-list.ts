@@ -1,6 +1,6 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RestaurantCard } from '../restaurant-card/restaurant-card';
-import data from '../../data/restaurants.json';
+import { Restaurants } from '../services/restaurants';
 
 @Component({
   imports: [RestaurantCard],
@@ -10,20 +10,20 @@ import data from '../../data/restaurants.json';
 })
 
 export class RestaurantList {
+  private readonly restaurantsService = inject(Restaurants);
+
   readonly searchTerm = signal('');
-  readonly restaurants = signal(data);
+  readonly restaurants = signal(this.restaurantsService.getAll());
   readonly selectedCuisine = signal('all');
-  readonly acitveOnly = signal(false);
+  readonly activeOnly = signal(false);
   readonly sortBy = signal('rating');
 
   readonly filteredRestaurants = computed(() => {
     const query = this.searchTerm().trim().toLocaleLowerCase();
-
-  const filtered = this.restaurants().filter((restaurant) => {
+    const filtered = this.restaurants().filter((restaurant) => {
     const matchesName = restaurant.name.toLocaleLowerCase().includes(query);
-    const matchesActive = !this.acitveOnly() || restaurant.isActive;
+    const matchesActive = !this.activeOnly() || restaurant.isActive;
     const matchesCuisine = this.selectedCuisine() === 'all' || restaurant.cuisine === this.selectedCuisine();
-
       return matchesName && matchesActive && matchesCuisine;
     });
 
@@ -31,11 +31,9 @@ export class RestaurantList {
       if (this.sortBy() === 'rating') {
         return b.rating - a.rating;
       }
-
       if (this.sortBy() === 'deliveryTime') {
         return a.deliveryTimeMin - b.deliveryTimeMin;
       }
-
       return a.deliveryFee - b.deliveryFee;
     });
   });
@@ -43,7 +41,7 @@ export class RestaurantList {
   resetFilters(): void {
     this.searchTerm.set('');
     this.selectedCuisine.set('all');
-    this.acitveOnly.set(false);
+    this.activeOnly.set(false);
     this.sortBy.set('rating');
   }
 }
