@@ -1,0 +1,131 @@
+<main class="admin-form-page">
+  <h1>{{ isEditing() ? 'Edytuj restaurację' : 'Dodaj restaurację' }}</h1>
+  <p>Pola oznaczone gwiazdką są wymagane.</p>
+
+  <form (submit)="onSubmit($event)" novalidate>
+    <div class="form-field">
+      <label for="name">Nazwa restauracji *</label>
+      <input id="name" type="text" autocomplete="organization" [formField]="restaurantForm.name"
+        [attr.aria-invalid]="(submitted() || restaurantForm.name().touched()) && restaurantForm.name().invalid() ? 'true' : null"
+        [attr.aria-describedby]="(submitted() || restaurantForm.name().touched()) && restaurantForm.name().invalid() ? 'name-error' : null" />
+      @if ((submitted() || restaurantForm.name().touched()) && restaurantForm.name().invalid()) {
+        <p class="field-error" id="name-error">{{ restaurantForm.name().errors()[0].message }}</p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="description">Opis *</label>
+      <textarea id="description" rows="4" [formField]="restaurantForm.description"
+        [attr.aria-invalid]="(submitted() || restaurantForm.description().touched()) && restaurantForm.description().invalid() ? 'true' : null"
+        [attr.aria-describedby]="(submitted() || restaurantForm.description().touched()) && restaurantForm.description().invalid() ? 'description-error' : null"></textarea>
+      @if ((submitted() || restaurantForm.description().touched()) && restaurantForm.description().invalid()) {
+        <p class="field-error" id="description-error">{{ restaurantForm.description().errors()[0].message }}</p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="cuisine">Rodzaj kuchni *</label>
+      <select id="cuisine" [formField]="restaurantForm.cuisine"
+        [attr.aria-invalid]="(submitted() || restaurantForm.cuisine().touched()) && restaurantForm.cuisine().invalid() ? 'true' : null"
+        [attr.aria-describedby]="(submitted() || restaurantForm.cuisine().touched()) && restaurantForm.cuisine().invalid() ? 'cuisine-error' : null">
+        <option value="">Wybierz rodzaj kuchni</option>
+        <option value="polish">Polska</option>
+        <option value="italian">Włoska</option>
+        <option value="american">Amerykańska</option>
+        <option value="thai">Tajska</option>
+        <option value="chinese">Chińska</option>
+      </select>
+      @if ((submitted() || restaurantForm.cuisine().touched()) && restaurantForm.cuisine().invalid()) {
+        <p class="field-error" id="cuisine-error">{{ restaurantForm.cuisine().errors()[0].message }}</p>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="imageUrl">Adres URL zdjęcia *</label>
+      <input id="imageUrl" type="url" placeholder="https://example.com/restauracja.jpg"
+        [formField]="restaurantForm.imageUrl"
+        [attr.aria-invalid]="(submitted() || restaurantForm.imageUrl().touched()) && restaurantForm.imageUrl().invalid() ? 'true' : null"
+        [attr.aria-describedby]="(submitted() || restaurantForm.imageUrl().touched()) && restaurantForm.imageUrl().invalid() ? 'imageUrl-error' : null" />
+      @if ((submitted() || restaurantForm.imageUrl().touched()) && restaurantForm.imageUrl().invalid()) {
+        <p class="field-error" id="imageUrl-error">{{ restaurantForm.imageUrl().errors()[0].message }}</p>
+      }
+    </div>
+
+    <fieldset>
+      <legend>Czas dostawy</legend>
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="deliveryTimeMin">Od (minuty) *</label>
+          <input id="deliveryTimeMin" type="number" step="1"
+            [formField]="restaurantForm.deliveryTimeMin"
+            [attr.aria-invalid]="(submitted() || restaurantForm.deliveryTimeMin().touched()) && restaurantForm.deliveryTimeMin().invalid() ? 'true' : null"
+            [attr.aria-describedby]="(submitted() || restaurantForm.deliveryTimeMin().touched()) && restaurantForm.deliveryTimeMin().invalid() ? 'deliveryTimeMin-error' : null" />
+          @if ((submitted() || restaurantForm.deliveryTimeMin().touched()) && restaurantForm.deliveryTimeMin().invalid()) {
+            <p class="field-error" id="deliveryTimeMin-error">{{ restaurantForm.deliveryTimeMin().errors()[0].message }}</p>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="deliveryTimeMax">Do (minuty) *</label>
+          <input id="deliveryTimeMax" type="number" step="1"
+            [formField]="restaurantForm.deliveryTimeMax"
+            [attr.aria-invalid]="((submitted() || restaurantForm.deliveryTimeMax().touched()) && restaurantForm.deliveryTimeMax().invalid()) || deliveryRangeErrorVisible() ? 'true' : null"
+            [attr.aria-describedby]="((submitted() || restaurantForm.deliveryTimeMax().touched()) && restaurantForm.deliveryTimeMax().invalid()) || deliveryRangeErrorVisible() ? 'deliveryTimeMax-error' : null" />
+          @if ((submitted() || restaurantForm.deliveryTimeMax().touched()) && restaurantForm.deliveryTimeMax().invalid()) {
+            <p class="field-error" id="deliveryTimeMax-error">{{ restaurantForm.deliveryTimeMax().errors()[0].message }}</p>
+          } @else if (deliveryRangeErrorVisible()) {
+            <p class="field-error" id="deliveryTimeMax-error">Maksymalny czas dostawy nie może być krótszy niż minimalny.</p>
+          }
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="deliveryFee">Koszt dostawy (zł) *</label>
+        <input id="deliveryFee" type="number" step="0.01"
+          [formField]="restaurantForm.deliveryFee"
+          [attr.aria-invalid]="(submitted() || restaurantForm.deliveryFee().touched()) && restaurantForm.deliveryFee().invalid() ? 'true' : null"
+          [attr.aria-describedby]="(submitted() || restaurantForm.deliveryFee().touched()) && restaurantForm.deliveryFee().invalid() ? 'deliveryFee-error' : null" />
+        @if ((submitted() || restaurantForm.deliveryFee().touched()) && restaurantForm.deliveryFee().invalid()) {
+          <p class="field-error" id="deliveryFee-error">{{ restaurantForm.deliveryFee().errors()[0].message }}</p>
+        }
+      </div>
+
+      <div class="form-field">
+        <label for="minimumOrderValue">Minimalna wartość zamówienia (zł) *</label>
+        <input id="minimumOrderValue" type="number" step="0.01"
+          [formField]="restaurantForm.minimumOrderValue"
+          [attr.aria-invalid]="(submitted() || restaurantForm.minimumOrderValue().touched()) && restaurantForm.minimumOrderValue().invalid() ? 'true' : null"
+          [attr.aria-describedby]="(submitted() || restaurantForm.minimumOrderValue().touched()) && restaurantForm.minimumOrderValue().invalid() ? 'minimumOrderValue-error' : null" />
+        @if ((submitted() || restaurantForm.minimumOrderValue().touched()) && restaurantForm.minimumOrderValue().invalid()) {
+          <p class="field-error" id="minimumOrderValue-error">{{ restaurantForm.minimumOrderValue().errors()[0].message }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="address">Adres restauracji *</label>
+      <input id="address" type="text" autocomplete="street-address"
+        [formField]="restaurantForm.address"
+        [attr.aria-invalid]="(submitted() || restaurantForm.address().touched()) && restaurantForm.address().invalid() ? 'true' : null"
+        [attr.aria-describedby]="(submitted() || restaurantForm.address().touched()) && restaurantForm.address().invalid() ? 'address-error' : null" />
+      @if ((submitted() || restaurantForm.address().touched()) && restaurantForm.address().invalid()) {
+        <p class="field-error" id="address-error">{{ restaurantForm.address().errors()[0].message }}</p>
+      }
+    </div>
+
+    <div class="form-field checkbox-field">
+      <input id="isActive" type="checkbox" [formField]="restaurantForm.isActive" />
+      <label for="isActive">Restauracja aktywna</label>
+    </div>
+
+    <div class="form-actions">
+      <a routerLink="/admin/restaurants">Anuluj</a>
+      <button type="submit">{{ isEditing() ? 'Zapisz zmiany' : 'Dodaj restaurację' }}</button>
+    </div>
+    @if (submitError()) {
+      <p class="field-error" role="alert">{{ submitError() }}</p>
+    }
+  </form>
+</main>

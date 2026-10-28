@@ -1,0 +1,68 @@
+<main class="admin-restaurants-page">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Panel administracyjny</p>
+      <h1>Restauracje</h1>
+      <p class="page-description">Zarządzaj ofertą i dostępnością restauracji.</p>
+    </div>
+    <a class="primary-action" routerLink="/admin/restaurants/new">
+      <span aria-hidden="true">+</span>
+      Dodaj restaurację
+    </a>
+  </header>
+
+  @if (actionError()) {
+    <p class="action-error" role="alert">{{ actionError() }}</p>
+  }
+
+  <section class="table-card" aria-label="Zarządzanie restauracjami">
+    <div class="table-scroll" role="region" aria-label="Lista restauracji" tabindex="0">
+      <table>
+        <caption>Lista restauracji w panelu administracyjnym</caption>
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Cuisine</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Active</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (restaurant of restaurants(); track restaurant.id) {
+            <tr>
+              <td class="restaurant-name">{{ restaurant.name }}</td>
+              <td>{{ restaurant.cuisine }}</td>
+              <td><span class="rating">★ {{ restaurant.rating }}</span></td>
+              <td>
+                <span
+                  class="status-badge"
+                  [class.status-badge--active]="restaurant.isActive"
+                  [class.status-badge--inactive]="!restaurant.isActive"
+                >
+                  {{ restaurant.isActive ? 'Aktywna' : 'Nieaktywna' }}
+                </span>
+              </td>
+              <td>
+                <div class="row-actions">
+                  <a class="edit-action" [routerLink]="['/admin/restaurants', restaurant.id, 'edit']">
+                    Edytuj
+                  </a>
+                  @if (restaurant.isActive) {
+                    <button class="deactivate-action" type="button" (click)="deactivateRestaurant(restaurant.id)">
+                      Dezaktywuj
+                    </button>
+                  }
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td class="empty-state" colspan="5">Brak restauracji do wyświetlenia.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>

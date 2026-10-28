@@ -13,18 +13,15 @@ export class RestaurantList {
   private readonly restaurantsService = inject(Restaurants);
 
   readonly searchTerm = signal('');
-  readonly restaurants = signal(this.restaurantsService.getAll());
   readonly selectedCuisine = signal('all');
-  readonly activeOnly = signal(false);
   readonly sortBy = signal('rating');
 
   readonly filteredRestaurants = computed(() => {
     const query = this.searchTerm().trim().toLocaleLowerCase();
-    const filtered = this.restaurants().filter((restaurant) => {
-    const matchesName = restaurant.name.toLocaleLowerCase().includes(query);
-    const matchesActive = !this.activeOnly() || restaurant.isActive;
-    const matchesCuisine = this.selectedCuisine() === 'all' || restaurant.cuisine === this.selectedCuisine();
-      return matchesName && matchesActive && matchesCuisine;
+    const filtered = this.restaurantsService.getAll().filter((restaurant) => {
+      const matchesName = restaurant.name.toLocaleLowerCase().includes(query);
+      const matchesCuisine = this.selectedCuisine() === 'all' || restaurant.cuisine === this.selectedCuisine();
+      return restaurant.isActive && matchesName && matchesCuisine;
     });
 
     return filtered.sort((a, b) => {
@@ -41,7 +38,6 @@ export class RestaurantList {
   resetFilters(): void {
     this.searchTerm.set('');
     this.selectedCuisine.set('all');
-    this.activeOnly.set(false);
     this.sortBy.set('rating');
   }
 }
